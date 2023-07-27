@@ -13,3 +13,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: hsl(200, 20%, 10%);
 }
+
+* {
+  box-sizing: border-box;
+}

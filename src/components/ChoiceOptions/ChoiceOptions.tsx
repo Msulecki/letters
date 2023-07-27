@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import React, { FC } from 'react';
 import { Letter } from '../../types';
 import { useOptions } from '../../hooks/useOptions';
 import './ChoiceOptions.scss';
@@ -6,7 +6,7 @@ import './ChoiceOptions.scss';
 interface Props {
   letters: { [key: string]: string };
   chosenLetter: Letter;
-  onAfterChoice?: () => void;
+  onAfterChoice?: (isSuccess: boolean) => void;
 }
 
 const ChoiceOptions: FC<Props> = ({
@@ -21,14 +21,13 @@ const ChoiceOptions: FC<Props> = ({
     e: React.MouseEvent<HTMLButtonElement>
   ) => {
     const isSuccess = option.plLetter === chosenLetter.plLetter;
-    console.log(isSuccess ? 'GOOD' : 'BAD');
 
-    if (isSuccess) {
-      onAfterChoice();
-    } else {
+    if (!isSuccess) {
       e.currentTarget.classList.add('bad-choice');
       e.currentTarget.disabled = true;
     }
+
+    onAfterChoice(isSuccess);
   };
 
   return (
@@ -45,4 +44,7 @@ const ChoiceOptions: FC<Props> = ({
   );
 };
 
-export default ChoiceOptions;
+export default React.memo(
+  ChoiceOptions,
+  (prev, next) => prev.chosenLetter === next.chosenLetter
+);

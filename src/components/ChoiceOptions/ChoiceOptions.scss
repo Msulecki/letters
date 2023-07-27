@@ -1,6 +1,7 @@
 .options {
   display: flex;
   gap: 8px;
+  margin-top: 60px;
 
   button {
     background: none;
@@ -21,7 +22,7 @@
     user-select: none;
 
     @media (hover: hover) {
-      button:hover {
+      &:hover {
         background-color: hsl(200, 80%, 20%);
       }
     }
