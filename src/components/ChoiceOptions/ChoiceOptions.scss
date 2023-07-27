@@ -20,8 +20,10 @@
     cursor: pointer;
     user-select: none;
 
-    &:hover {
-      background-color: hsl(200, 80%, 20%);
+    @media (hover: hover) {
+      button:hover {
+        background-color: hsl(200, 80%, 20%);
+      }
     }
 
     &.bad-choice {
