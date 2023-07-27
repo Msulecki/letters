@@ -1,0 +1,35 @@
+.options {
+  display: flex;
+  gap: 8px;
+
+  button {
+    background: none;
+    border: 1px solid hsl(200, 60%, 80%);
+    border-radius: 4px;
+    padding: 6px 14px;
+    width: 60px;
+    height: 60px;
+    color: hsl(200, 80%, 60%);
+    background-color: hsl(200, 80%, 10%);
+    font-size: 1.3rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+    user-select: none;
+
+    &:hover {
+      background-color: hsl(200, 80%, 20%);
+    }
+
+    &.bad-choice {
+      border: 1px solid hsl(0, 60%, 80%);
+      color: hsl(0, 80%, 60%);
+      background-color: hsl(0, 80%, 10%);
+
+      cursor: not-allowed;
+    }
+  }
+}
